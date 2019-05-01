@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-const Home = () => (
+const Home = () =>(
   <div>
     <Helmet title="首页" />
     <h1>Hello Next</h1>
