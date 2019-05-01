@@ -32,9 +32,7 @@
     "lint-staged": "^8.1.5"
   },
   "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run lint"
-    }
+    "pre-commit": "npm run lint",
+    "pre-push": "npm run lint"
   }
 }
