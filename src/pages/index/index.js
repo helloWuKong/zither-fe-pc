@@ -15,19 +15,19 @@ const Index = () => {
         <Link href="/area">
           <div className="area_page" />
         </Link>
-        <Link href="/study">
+        <Link href="/post?type=study">
           <div className="study_page" />
         </Link>
-        <Link href="/songs">
+        <Link href="/post?type=songs">
           <div className="songs_page" />
         </Link>
-        <Link href="/rythme">
+        <Link href="/post?type=rythme">
           <div className="rythme_page" />
         </Link>
-        <Link href="/example">
+        <Link href="/post?type=example">
           <div className="example_page" />
         </Link>
-        <Link href="/news">
+        <Link href="/post?type=news">
           <div className="news_page" />
         </Link>
         <Link href="/about">

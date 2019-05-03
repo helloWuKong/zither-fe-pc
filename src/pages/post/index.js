@@ -3,6 +3,8 @@ import { withRouter } from 'next/router'
 import Helmet from 'react-helmet'
 import Proptypes from 'prop-types'
 import Navbar from '../../components/Navbar/Navbar'
+import PostItem from '../../components/PostItem'
+import SearchInput from '../../components/searchBar'
 import './index.less'
 
 const TYPE_TITLE = {
@@ -26,6 +28,17 @@ const Post = (props) => {
     <div className="container">
       <Helmet title={title} />
       <Navbar />
+      <div style={{ marginTop: '34px' }}>
+        <SearchInput />
+      </div>
+      <section>
+        <PostItem title="title测试" type={router.query.type} />
+        <PostItem title="title测试" type={router.query.type} />
+        <PostItem title="title测试" type={router.query.type} />
+        <PostItem title="title测试" type={router.query.type} />
+        <PostItem title="title测试" type={router.query.type} />
+        <PostItem title="title测试" type={router.query.type} />
+      </section>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './index.less'
 
 const DEFAULT_IMG = {
-  video: ''
+  default: '/static/img/default.png',
 }
 
 const PostItem = (props) => {
@@ -11,7 +11,7 @@ const PostItem = (props) => {
   return (
     <div className="post_item">
       <div className="post_item_img">
-        <img src={src || DEFAULT_IMG[type]} alt="标题图片" />
+        <img src={src || DEFAULT_IMG.default} alt="标题图片" />
       </div>
       <div className="post_item_title">
         {title}
