@@ -1,11 +1,8 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import Index from '../src/pages/index'
 
 const Home = () => (
-  <div>
-    <Helmet title="首页" />
-    <h1>Hello Next</h1>
-  </div>
+  <Index />
 )
 
 export default Home
