@@ -14,6 +14,8 @@ export default class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta name="keywords" content="中国古筝日" />
           <meta name="description" content="中国古筝日" />
+          <script src="https://cdn.bootcss.com/echarts/4.1.0/echarts.min.js" />
+          <script src="http://gallery.echartsjs.com/dep/echarts/map/js/china.js"/>
         </Head>
         <body>
           <Main />

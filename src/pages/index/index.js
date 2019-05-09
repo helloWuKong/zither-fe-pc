@@ -1,10 +1,45 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Link from 'next/link'
+import option from './options'
+import { get } from '../../utils/http'
 import './index.less'
 
-const Index = () => {
-  useEffect(() => {}, [])
+const Index = (props) => {
+  const { poc } = props
+
+  const [province, setProvince] = useState('') // 选中省份
+  const [cities, setCitys] = useState({}) // 选中省份下城市数据
+
+  const _getCitys = (value) => {
+    let temp = {}
+    poc.some((item) => {
+      if (+item.code === value) {
+        temp = item
+        return true
+      }
+      return false
+    })
+    return temp
+  }
+
+  const createChainMap = (element) => {
+    const chainMap = echarts.init(element)
+    chainMap.on('click', (item) => {
+      // 获取地图选中区域
+      const data = item.data
+      setProvince(data.name)
+      setCitys(_getCitys(data.value))
+    })
+    chainMap.setOption(option, true)
+  }
+
+  useEffect(() => {
+    const element = document.querySelector('#container')
+    createChainMap(element)
+  }, [])
+
   return (
     <div className="index_container">
       <Helmet title="首页" />
@@ -38,8 +73,23 @@ const Index = () => {
         轮播图区域
       </div>
       <section className="area">
-        <div className="choose_city">222</div>
-        <div className="map">11</div>
+        <div className="choose_city">
+          {
+            cities.children ? (
+              <div className="citys">
+                {
+                  cities.children.map(item => (
+                    <span>{ item.name }</span>
+                  ))
+                }
+              </div>
+            ) : null
+          }
+          {
+            province && <div className="province">{ province }</div>
+          }
+        </div>
+        <div className="map" id="container" />
       </section>
       <section className="zither">
         <Link href="area">
@@ -58,6 +108,15 @@ const Index = () => {
       </footer>
     </div>
   )
+}
+
+Index.getInitialProps = async () => {
+  const data = await get('/api/fe/poc')
+  return { poc: data.list || [] }
+}
+
+Index.propTypes = {
+  poc: PropTypes.array.isRequired,
 }
 
 export default Index

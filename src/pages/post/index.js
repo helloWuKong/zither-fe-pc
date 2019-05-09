@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { withRouter } from 'next/router'
 import Helmet from 'react-helmet'
 import Proptypes from 'prop-types'
+import { get } from '../../utils/http'
 import Navbar from '../../components/Navbar/Navbar'
 import PostItem from '../../components/PostItem'
 import SearchInput from '../../components/searchBar'
@@ -16,7 +17,7 @@ const TYPE_TITLE = {
 }
 
 const Post = (props) => {
-  const { router } = props
+  const { router, postList } = props
 
   const [title, setTitle] = useState('')
 
@@ -24,6 +25,7 @@ const Post = (props) => {
     const { query: { type } } = router
     setTitle(TYPE_TITLE[type])
   }, [router])
+
   return (
     <div className="container">
       <Helmet title={title} />
@@ -32,19 +34,19 @@ const Post = (props) => {
         <SearchInput />
       </div>
       <section>
-        <PostItem title="title测试" type={router.query.type} />
-        <PostItem title="title测试" type={router.query.type} />
-        <PostItem title="title测试" type={router.query.type} />
-        <PostItem title="title测试" type={router.query.type} />
-        <PostItem title="title测试" type={router.query.type} />
-        <PostItem title="title测试" type={router.query.type} />
+        {
+          postList.map(item => (
+            <PostItem title={item.title} type={router.query.type} src={item.src} />
+          ))
+        }
       </section>
     </div>
   )
 }
 
-Post.getInitialProps = ({ query }) => {
-  console.log(query)
+Post.getInitialProps = async ({ query }) => {
+  const postList = await get('/api/fe/posts')
+  return { postList: postList.list || [] }
 }
 
 Post.propTypes = {
