@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './index.less'
 
 const SearchInput = (props) => {
-  const { placeholder, onChange } = props
+  const { onChange, onSearch } = props
 
   const [value, setValue] = useState('')
 
@@ -13,16 +13,24 @@ const SearchInput = (props) => {
     onChange && onchange(inputValue)
   }
 
+  function _hanleSearch() {
+    const target = (value || '').trim()
+    onSearch(target)
+  }
+
   return (
     <div className="search_input">
-      <input value={value} onChange={_handleInputChange} placeholder={placeholder} />
+      <input value={value} onChange={_handleInputChange} placeholder="请输入搜索内容" />
+      <span className="icon" onClick={_hanleSearch}>
+        <i />
+      </span>
     </div>
   )
 }
 
 SearchInput.propTypes = {
-  placeholder: PropTypes.string,
   onChange: PropTypes.func,
+  onSearch: PropTypes.func.isRequired,
 }
 
 export default SearchInput

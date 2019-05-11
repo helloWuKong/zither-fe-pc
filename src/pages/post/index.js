@@ -16,41 +16,68 @@ const TYPE_TITLE = {
   example: '示范',
 }
 
+const TAG_TO_NUMBER = {
+  news: 1,
+  study: 2,
+  rythme: 3,
+  songs: 4,
+  example: 5,
+}
+
 const Post = (props) => {
   const { router, postList } = props
 
   const [title, setTitle] = useState('')
+  const [list, setList] = useState([])
 
   useEffect(() => {
     const { query: { type } } = router
     setTitle(TYPE_TITLE[type])
   }, [router])
 
+  useEffect(() => {
+    setList(postList)
+  }, [postList])
+
+  async function handleSearch(value) {
+    const tag = TAG_TO_NUMBER[router.query.type]
+    const res = await get(`/api/fe/posts?title=${value}&tag=${tag}`)
+    setList(res.list || [])
+  }
+
   return (
     <div className="container">
       <Helmet title={title} />
       <Navbar />
       <div style={{ marginTop: '34px' }}>
-        <SearchInput />
+        <SearchInput onSearch={handleSearch} />
       </div>
-      <section>
+      <div>
         {
-          postList.map(item => (
-            <PostItem title={item.title} type={router.query.type} src={item.src} />
+          list.map(item => (
+            <PostItem
+              title={item.title}
+              type={router.query.type}
+              src={item.src}
+              key={item._id}
+              id={item._id}
+            />
           ))
         }
-      </section>
+      </div>
     </div>
   )
 }
 
 Post.getInitialProps = async ({ query }) => {
-  const postList = await get('/api/fe/posts')
+  const tag = TAG_TO_NUMBER[query.type]
+  const postList = await get(`/api/fe/posts?tag=${tag}`)
   return { postList: postList.list || [] }
 }
 
 Post.propTypes = {
   router: Proptypes.object,
+  postList: Proptypes.array,
 }
 
 export default withRouter(Post)
