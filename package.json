@@ -7,8 +7,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "dev:server": "cross-env NODE_ENV=development PORT=3000 node server.js",
-    "start:server": "cross-env NODE_ENV=production PORT=3000 node server.js",
+    "dev:server": "cross-env NODE_ENV=development PORT=3003 node server.js",
+    "start:server": "cross-env NODE_ENV=production PORT=3003 node server.js",
     "lint": "eslint --fix ./pages"
   },
   "author": "wangpan",
