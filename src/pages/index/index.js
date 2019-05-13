@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Router from 'next/router'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Link from 'next/link'
@@ -40,6 +41,11 @@ const Index = (props) => {
     createChainMap(element)
   }, [])
 
+
+  const _handleCityClick = code => () => {
+    code && Router.push(`/abroad?cityid=${code}`)
+  }
+
   return (
     <div className="index_container">
       <Helmet title="首页" />
@@ -79,7 +85,7 @@ const Index = (props) => {
               <div className="citys">
                 {
                   cities.children.map(item => (
-                    <span>{ item.name }</span>
+                    <span onClick={_handleCityClick(item.code)}>{ item.name }</span>
                   ))
                 }
               </div>

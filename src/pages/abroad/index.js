@@ -16,6 +16,10 @@ const Post = (props) => {
   const [poc2, setPoc2] = useState([])
   const [poc3, setPoc3] = useState([])
 
+  const [poc1Val, setPoc1Val] = useState('')
+  const [poc2Val, setPoc2Val] = useState('')
+  const [poc3Val, setPoc3Val] = useState('')
+
   const [cityId, setCityId] = useState('')
 
 
@@ -63,10 +67,13 @@ const Post = (props) => {
     const value = e.target.value
     if (!value) {
       setCityId('')
-      setPoc1([])
+      setPoc1Val('')
+      setPoc2Val('')
+      setPoc3Val('')
       setPoc2([])
       return
     }
+    setPoc1Val(value)
     setCityId(value)
     const poc2List = _findPoc1Children(value)
     setPoc2(poc2List.children)
@@ -77,9 +84,12 @@ const Post = (props) => {
     const value = e.target.value
     if (!value) {
       setCityId(cityId.slice(0, 2))
+      setPoc2Val('')
+      setPoc3Val('')
       setPoc3([])
       return
     }
+    setPoc2Val(value)
     setCityId(value)
     const poc3List = _findPoc2Children(value)
     setPoc3(poc3List.children)
@@ -89,8 +99,10 @@ const Post = (props) => {
     const value = e.target.value
     if (!value) {
       setCityId(cityId.slice(0, 4))
+      setPoc3Val('')
       return
     }
+    setPoc3Val(value)
     setCityId(value)
   }
 
@@ -99,7 +111,7 @@ const Post = (props) => {
       <Helmet title="分会场" />
       <Navbar />
       <div className="abroad" style={{ marginTop: '34px' }}>
-        <select onChange={_handlePoc1Change}>
+        <select value={poc1Val} onChange={_handlePoc1Change}>
           <option value={''}>请选择</option>
           {
             poc1.map(item => (
@@ -107,7 +119,7 @@ const Post = (props) => {
             ))
           }
         </select>
-        <select onChange={_handlePoc2Change}>
+        <select value={poc2Val} onChange={_handlePoc2Change}>
           <option value={''}>请选择</option>
           {
             poc2.map(item => (
@@ -115,7 +127,7 @@ const Post = (props) => {
             ))
           }
         </select>
-        <select onChange={_handlePoc3Change}>
+        <select value={poc3Val} onChange={_handlePoc3Change}>
           <option value={''}>请选择</option>
           {
             poc3.map(item => (
