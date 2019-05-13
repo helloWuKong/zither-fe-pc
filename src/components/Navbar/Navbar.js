@@ -115,7 +115,7 @@ const Navbar = () => {
           <Link href="/">
             <div className="page page_index">首页</div>
           </Link>
-          <Link href="/area">
+          <Link href="/abroad">
             <div className="page page_area">分会场</div>
           </Link>
           <Link href="/post?type=news">

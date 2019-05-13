@@ -47,7 +47,7 @@ const Index = (props) => {
         <Link href="/">
           <div className="index_page" />
         </Link>
-        <Link href="/area">
+        <Link href="/abroad">
           <div className="area_page" />
         </Link>
         <Link href="/post?type=study">
@@ -92,7 +92,7 @@ const Index = (props) => {
         <div className="map" id="container" />
       </section>
       <section className="zither">
-        <Link href="area">
+        <Link href="/post?type=7">
           <div className="choose_area">请选择</div>
         </Link>
         <Link href="apply">

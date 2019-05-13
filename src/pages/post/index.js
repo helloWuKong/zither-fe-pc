@@ -40,7 +40,7 @@ const Post = (props) => {
   }, [postList])
 
   async function handleSearch(value) {
-    const tag = TAG_TO_NUMBER[router.query.type]
+    const tag = TAG_TO_NUMBER[router.query.type] || router.query.type
     const res = await get(`/api/fe/posts?title=${value}&tag=${tag}`)
     setList(res.list || [])
   }
@@ -70,7 +70,7 @@ const Post = (props) => {
 }
 
 Post.getInitialProps = async ({ query }) => {
-  const tag = TAG_TO_NUMBER[query.type]
+  const tag = TAG_TO_NUMBER[query.type] || query.type
   const postList = await get(`/api/fe/posts?tag=${tag}`)
   return { postList: postList.list || [] }
 }
