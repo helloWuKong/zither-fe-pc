@@ -46,6 +46,7 @@ const Index = (props) => {
     code && Router.push(`/abroad?cityid=${code}`)
   }
 
+
   return (
     <div className="index_container">
       <Helmet title="首页" />
@@ -95,7 +96,12 @@ const Index = (props) => {
             province && <div className="province">{ province }</div>
           }
         </div>
-        <div className="map" id="container" />
+        <div className="choose"></div>
+        <div className="mapContianer">
+          <div className="map" id="container"></div>
+          <div className="bigWord"></div>
+          {/* <div className="cloud"></div> */}
+        </div>
       </section>
       <section className="zither">
         <Link href="/post?type=7">

@@ -42,6 +42,7 @@
 }
 .area {
   margin: 30px 0 0 0px;
+  position: relative;
   .citys {
     display: inline-block;
     width: 1170px;
@@ -50,13 +51,15 @@
     span {
       display: inline-block;
       width: 16px;
-      font-size: 20px;
+      font-size: 14px;
       color: #9C857E;
       margin-left: 28px;
       margin-right: 28px;
       min-height: 100px;
       margin-top: 10px;
       cursor: pointer;
+      line-height: 20px;
+      vertical-align: top;
     }
   }
   .province {
@@ -65,11 +68,46 @@
     font-size: 24px;
     color: #A95F53;
     margin-left: 50px;
+    line-height: 30px;
+  }
+  .mapContianer {
+    position: relative;
   }
   .map {
     margin-top: 30px;
     height: 800px;
     margin-left: -200px;
+  }
+  .bigWord {
+    width: 234px;
+    height: 250px;
+    background: url('/static/img/fenhuichang.png');
+    background-size: 100% 100%;
+    position: absolute;
+    right: 213px;
+    bottom: 183px;
+  }
+  .choose {
+    background: url('/static/img/choose.png');
+    background-size: 100% 100%;
+    width: 28px;
+    height: 278px;
+    position: absolute;
+    top: 0;
+    right: 100px;
+  }
+  .cloud {
+    position: absolute;
+    background: url('/static/img/cloud1.png');
+    background-size: 100% 100%;
+    width: 460px;
+    height: 191px;
+    top: 144px;
+    left: -82px;
+    transition: all .1s;
+  }
+  .cloud:hover {
+    left: -300px;
   }
 }
 
