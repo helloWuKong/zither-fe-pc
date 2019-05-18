@@ -59,16 +59,18 @@ const Post = (props) => {
   useEffect(() => {
     setPoc1(poc)
     const id = router.query.cityid
-    setPoc1Val(id.slice(0, 2))
-    if (poc) {
-      poc.forEach((item) => {
-        if (item.code === id.slice(0, 2)) {
-          setPoc2(item.children || [])
-        }
-      })
+    if (id) {
+      setPoc1Val(id.slice(0, 2))
+      if (poc) {
+        poc.forEach((item) => {
+          if (item.code === id.slice(0, 2)) {
+            setPoc2(item.children || [])
+          }
+        })
+      }
+      setPoc2Val(id.slice(0))
+      setCityId(id)
     }
-    setPoc2Val(id.slice(0))
-    setCityId(id)
   }, [poc])
 
   const _handlePoc1Change = (e) => {

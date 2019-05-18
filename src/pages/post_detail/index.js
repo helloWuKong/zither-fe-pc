@@ -17,7 +17,7 @@ const PostDetail = (props) => {
         <h1>{postDetail.title}</h1>
         <div>
           创建时间：
-          {dateFilter(postDetail.meta.createdTime, 'yyyy-MM-dd hh:mm:ss')}
+          { postDetail.meta && dateFilter(postDetail.meta.createdTime, 'yyyy-MM-dd hh:mm:ss')}
           {'     '}
           作者：
           {postDetail.author}
@@ -35,7 +35,9 @@ const PostDetail = (props) => {
         />
       </div>
       <footer className="footer">
-        <section className="qrcode" />
+        <section className="qrcode">
+          <div className="qrcodeIcon" />
+        </section>
         <section className="copyright">
           © 2019 中国古筝日——古筝人自己的节日 版权所有
         </section>

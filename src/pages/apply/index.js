@@ -153,7 +153,9 @@ const Apply = (props) => {
 
       </section>
       <footer className="footer">
-        <section className="qrcode" />
+        <section className="qrcode">
+          <div className="qrcodeIcon" />
+        </section>
         <section className="copyright">
           © 2019 中国古筝日——古筝人自己的节日 版权所有
         </section>
