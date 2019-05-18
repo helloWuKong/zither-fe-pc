@@ -44,6 +44,11 @@ const Navbar = () => {
     setvisibleRegisterModal(true)
   }
 
+  const loginOut = () => {
+    localStorage.clear()
+    Router.push('/')
+  }
+
   const handleSubmitLogin = async (params) => {
     const { password, username } = params
     if (username.length < 6 || !username) {
@@ -140,6 +145,11 @@ const Navbar = () => {
             <div className="page page_search" />
           </Link>
           <div className="page page_sign" onClick={handleOpenModal} />
+          {
+            typeof window !== 'undefined' && localStorage.getItem('userId') && (
+              <div className="page" onClick={loginOut}>登出</div>
+            )
+          }
         </div>
       </div>
       <LoginModal

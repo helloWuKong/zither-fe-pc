@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const SERVER_API_PREFIX = 'http://192.168.1.103:8080'
+const SERVER_API_PREFIX = 'http://192.168.1.100:8080'
 
 export const get = (url) => {
   const isServer = typeof window === 'undefined'

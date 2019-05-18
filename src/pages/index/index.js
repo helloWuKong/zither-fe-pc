@@ -46,6 +46,7 @@ const Index = (props) => {
     code && Router.push(`/abroad?cityid=${code}`)
   }
 
+
   return (
     <div className="index_container">
       <Helmet title="首页" />
@@ -76,7 +77,7 @@ const Index = (props) => {
         </Link>
       </header>
       <div className="swiper">
-        轮播图区域
+        <img src="/static/img/banner1.jpg" alt=""/>
       </div>
       <section className="area">
         <div className="choose_city">
@@ -95,7 +96,12 @@ const Index = (props) => {
             province && <div className="province">{ province }</div>
           }
         </div>
-        <div className="map" id="container" />
+        <div className="choose"></div>
+        <div className="mapContianer">
+          <div className="map" id="container"></div>
+          <div className="bigWord"></div>
+          {/* <div className="cloud"></div> */}
+        </div>
       </section>
       <section className="zither">
         <Link href="/post?type=7">
@@ -107,7 +113,9 @@ const Index = (props) => {
       </section>
       <section className="intro" />
       <footer className="footer">
-        <section className="qrcode" />
+        <section className="qrcode">
+          <div className="qrcodeIcon"></div>
+        </section>
         <section className="copyright">
           © 2019 中国古筝日——古筝人自己的节日 版权所有
         </section>
