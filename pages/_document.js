@@ -17,6 +17,7 @@ export default class MyDocument extends Document {
           <script src="https://cdn.bootcss.com/echarts/4.1.0/echarts.min.js" />
           <script src="http://gallery.echartsjs.com/dep/echarts/map/js/china.js" />
           <link href="https://cdn.quilljs.com/1.3.3/quill.snow.css" rel="stylesheet" />
+          <link rel="icon" href="/static/img/favicon.ico" />
         </Head>
         <body>
           <Main />

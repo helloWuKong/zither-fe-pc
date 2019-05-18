@@ -77,7 +77,7 @@ const Index = (props) => {
         </Link>
       </header>
       <div className="swiper">
-        轮播图区域
+        <img src="/static/img/banner1.jpg" alt=""/>
       </div>
       <section className="area">
         <div className="choose_city">
