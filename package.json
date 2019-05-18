@@ -9,6 +9,7 @@
     "start": "next start",
     "dev:server": "cross-env NODE_ENV=development PORT=3003 node server.js",
     "start:server": "cross-env NODE_ENV=production PORT=3003 node server.js",
+    "start:prod": "NODE_ENV=production PORT=3003 pm2 start server.js --name zither-pc",
     "lint": "eslint --fix ./pages"
   },
   "author": "wangpan",
