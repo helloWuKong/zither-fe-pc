@@ -77,7 +77,7 @@ const Index = (props) => {
         </Link>
       </header>
       <div className="swiper">
-        <img src="/static/img/banner1.jpg" alt=""/>
+        <img src="/static/img/banner1.jpg" alt="" />
       </div>
       <section className="area">
         <div className="choose_city">
@@ -96,10 +96,10 @@ const Index = (props) => {
             province && <div className="province">{ province }</div>
           }
         </div>
-        <div className="choose"></div>
+        <div className="choose" />
         <div className="mapContianer">
-          <div className="map" id="container"></div>
-          <div className="bigWord"></div>
+          <div className="map" id="container" />
+          <div className="bigWord" />
           {/* <div className="cloud"></div> */}
         </div>
       </section>

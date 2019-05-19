@@ -29,7 +29,7 @@ const PostDetail = (props) => {
         className="ql-container ql-snow"
       >
         <pre
-          className="ql-editor"
+          className="ql-editor ql-custom"
           style={{ maxWidth: '980px', wordBreak: 'break-word' }}
           dangerouslySetInnerHTML={{ __html: postDetail.content }}
         />

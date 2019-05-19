@@ -90,7 +90,7 @@ export default class RegisterModal extends React.Component {
             <div className="phone">
               <span>联系电话</span>
               <input
-                placeholder="    请输入密码"
+                placeholder="    请输入联系电话"
                 onChange={(e) => { this.handelValueChange(e, 'phone') }}
                 value={phone}
               />
