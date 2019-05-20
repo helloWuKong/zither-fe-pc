@@ -3,7 +3,7 @@ const next = require('next')
 
 const devProxy = {
   '/api': {
-    target: 'http://192.168.1.100:8080',
+    target: 'http://api.520guzheng.com',
     changeOrigin: true,
   },
 }
