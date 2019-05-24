@@ -150,6 +150,9 @@ const Post = (props) => {
         <SearchInput onSearch={handleSearch} />
       </div>
       <div>
+        <img style={{ width: '100%', marginTop: '30px' }} src="/static/img/poster.jpg" alt=""/>
+      </div>
+      <div>
         {
           list.map(item => (
             <PostItem

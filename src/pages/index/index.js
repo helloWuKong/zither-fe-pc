@@ -46,6 +46,10 @@ const Index = (props) => {
     code && Router.push(`/abroad?cityid=${code}`)
   }
 
+  const callMe = () => {
+    alert('组委会电话(微信同）:13810839653')
+  }
+
 
   return (
     <div className="index_container">
@@ -96,25 +100,33 @@ const Index = (props) => {
             province && <div className="province">{ province }</div>
           }
         </div>
-        <div className="choose" />
+        <Link href="/post?type=7">
+          <div className="choose" />
+        </Link>
         <div className="mapContianer">
           <div className="map" id="container" />
           <div className="bigWord" />
           {/* <div className="cloud"></div> */}
         </div>
       </section>
-      <section className="zither">
+      {/* <section className="zither">
         <Link href="/post?type=7">
           <div className="choose_area">请选择</div>
         </Link>
         <Link href="apply">
           <div className="apply">立即申请</div>
         </Link>
-      </section>
+      </section> */}
       <section className="intro" />
       <footer className="footer">
-        <section className="qrcode">
+        {/* <section className="qrcode">
           <div className="qrcodeIcon" />
+        </section> */}
+        <section className="callMe">
+          <Link href="apply">
+            <div>申请管理员</div>
+          </Link>
+          <div onClick={callMe}>联系我们</div>
         </section>
         <section className="copyright">
           © 2019 中国古筝日——古筝人自己的节日 版权所有
