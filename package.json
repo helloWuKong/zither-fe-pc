@@ -15,7 +15,7 @@
   "author": "wangpan",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "express": "^4.16.4",
     "koa": "^2.7.0",
     "next": "^8.1.0",
